@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.razer.LoginFragment"
+        android:label="Iniciar Sesión"
+        tools:layout="@layout/fragment_login" >
+
+        <action
+            android:id="@+id/action_loginFragment_to_listsContainerFragment"
+            app:destination="@id/listsContainerFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listsContainerFragment"
+        android:name="com.example.razer.ListsContainerFragment"
+        android:label="@string/label_lists_container"
+        tools:layout="@layout/fragment_lists_container" >
+
+        <action
+            android:id="@+id/action_listsContainer_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+
+        <action
+            android:id="@+id/action_listsContainer_to_listDetailFragment"
+            app:destination="@id/listDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.example.razer.AddItemFragment"
+        android:label="@string/label_add_item"
+        tools:layout="@layout/fragment_add_item" />
+
+    <fragment
+        android:id="@+id/listDetailFragment"
+        android:name="com.example.razer.ListDetailFragment"
+        android:label="Detalle de Lista"
+        tools:layout="@layout/fragment_list_detail" >
+
+        <argument
+            android:name="listId"
+            app:argType="string" />
+
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_to_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+</navigation>
